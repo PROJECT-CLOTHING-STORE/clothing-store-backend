@@ -7,6 +7,9 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import configuration from 'config/configuration';
 import { JwtModule } from '@nestjs/jwt';
+import { ClothesModule } from './clothes/clothes.module';
+import { PassportModule } from '@nestjs/passport';
+import { JwtStrategy } from './auth/strategy/jwt.strategy';
 
 @Module({
     imports: [
@@ -18,13 +21,12 @@ import { JwtModule } from '@nestjs/jwt';
             envFilePath: `./config/env/${process.env.NODE_ENV}.env`,
             load: [configuration],
         }),
-        JwtModule.register({
-            global: true,
-            secret: process.env.JWT_SECRET,
-            signOptions: { expiresIn: '10000h' },
-        }),
+        JwtModule,
+        ClothesModule,
+        PassportModule,
     ],
     controllers: [AppController],
-    providers: [AppService],
+    providers: [AppService, JwtStrategy],
+    exports: [PassportModule, JwtModule],
 })
 export class AppModule {}
