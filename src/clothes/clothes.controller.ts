@@ -4,7 +4,7 @@ import { AuthGuard } from '@nestjs/passport';
 @Controller('clothes')
 export class ClothesController {
     @Get('dummy')
-    @UseGuards(AuthGuard('jwt'))
+    @UseGuards(AuthGuard())
     dummy(): string {
         return 'api resolved';
     }
