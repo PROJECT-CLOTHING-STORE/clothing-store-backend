@@ -32,7 +32,9 @@ export class AuthService {
         id: number;
         username: string;
     }): Promise<string> {
-        const token = await this.jwtService.signAsync(payload);
+        const token = await this.jwtService.signAsync(payload, {
+            secret: process.env.JWT_SECRET,
+        });
         return token;
     }
 
