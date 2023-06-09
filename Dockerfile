@@ -11,5 +11,5 @@ COPY . .
 
 RUN yarn install --production
 
-CMD ["yarn", "start:dev"]
+CMD ["yarn", "start:prod"]
 EXPOSE 3001
