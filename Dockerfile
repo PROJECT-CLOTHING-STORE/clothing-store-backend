@@ -1,5 +1,5 @@
 # Use a Node.js base image
-FROM node:14
+FROM node:18
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -23,7 +23,7 @@ RUN yarn prisma generate
 RUN yarn build
 
 # Expose the app's port (assuming it listens on port 3000)
-EXPOSE 3000
+EXPOSE 3001
 
 # Set the environment variables
 ENV JWT_SECRET ${JWT_SECRET}
