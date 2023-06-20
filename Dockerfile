@@ -2,6 +2,8 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+COPY package*.json ./
+
 ARG DATABASE_URL
 ARG JWT_SECRET
 
