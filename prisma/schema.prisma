@@ -19,9 +19,10 @@ model User {
 }
 
 model UserDetails {
-  id     Int  @id @default(autoincrement())
-  user   User @relation(fields: [userId], references: [id])
-  userId Int  @unique
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique
 }
 
 model Clothes {
