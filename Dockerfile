@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy package.json and yarn.lock (or package-lock.json) to the container
 COPY package.json yarn.lock* ./
 
+ARG JWT_SECRET
+ARG DATABASE_URL
+
 # Set the environment variables
 ENV JWT_SECRET ${JWT_SECRET}
 ENV DATABASE_URL ${DATABASE_URL}
