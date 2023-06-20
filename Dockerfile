@@ -33,4 +33,4 @@ RUN yarn build
 EXPOSE 3001
 
 # Run the app
-CMD ["node", "dist/main"]
+CMD ["node", "dist/src/main"]
