@@ -21,7 +21,7 @@ RUN yarn install
 COPY . .
 
 # Run database migrations
-RUN yarn prisma migrate
+RUN yarn prisma migrate deploy
 
 # Generate the Prisma client
 RUN yarn prisma generate
