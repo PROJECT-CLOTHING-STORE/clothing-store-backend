@@ -7,6 +7,10 @@ WORKDIR /app
 # Copy package.json and yarn.lock (or package-lock.json) to the container
 COPY package.json yarn.lock* ./
 
+# Set the environment variables
+ENV JWT_SECRET ${JWT_SECRET}
+ENV DATABASE_URL ${DATABASE_URL}
+
 # Install dependencies
 RUN yarn install
 
@@ -24,10 +28,6 @@ RUN yarn build
 
 # Expose the app's port (assuming it listens on port 3000)
 EXPOSE 3001
-
-# Set the environment variables
-ENV JWT_SECRET ${JWT_SECRET}
-ENV DATABASE_URL ${DATABASE_URL}
 
 # Run the app
 CMD ["node", "dist/main"]
