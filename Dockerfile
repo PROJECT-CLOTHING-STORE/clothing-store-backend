@@ -11,6 +11,9 @@ COPY package.json yarn.lock* ./
 ENV JWT_SECRET ${JWT_SECRET}
 ENV DATABASE_URL ${DATABASE_URL}
 
+RUN echo ${JWT_SECRET}
+RUN echo ${DATABASE_URL}
+
 # Install dependencies
 RUN yarn install
 
@@ -18,7 +21,7 @@ RUN yarn install
 COPY . .
 
 # Run database migrations
-RUN yarn prisma migrate deploy
+RUN yarn prisma migrate
 
 # Generate the Prisma client
 RUN yarn prisma generate
