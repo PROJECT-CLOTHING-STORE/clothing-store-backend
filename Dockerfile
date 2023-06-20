@@ -9,5 +9,8 @@ ENV JWT_SECRET ${JWT_SECRET}
 WORKDIR /app
 COPY . .
 
-CMD ["yarn", "run", "start:prod"]
+RUN yarn build
+
 EXPOSE 3001
+
+CMD ["yarn", "run", "start:prod"]
