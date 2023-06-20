@@ -9,6 +9,8 @@ ENV JWT_SECRET ${JWT_SECRET}
 WORKDIR /app
 COPY . .
 
+RUN yarn install
+
 RUN yarn build
 
 EXPOSE 3001
