@@ -19,12 +19,14 @@ export class AuthController {
         );
         if (token !== null) {
             const response: LoginResponse = {
+                username: loginRequest.username,
                 accessToken: token,
                 message: 'success',
             };
             return response;
         } else {
             const response: LoginResponse = {
+                username: loginRequest.username,
                 accessToken: null,
                 message: 'Failed',
             };
