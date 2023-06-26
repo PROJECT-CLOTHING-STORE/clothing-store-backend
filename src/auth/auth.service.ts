@@ -37,6 +37,7 @@ export class AuthService {
     }
 
     async register(username: string, password: string): Promise<User> {
+        if (username.length === 0 || password.length === 0) return null;
         return await this.usersService.createUser(username, password);
     }
 }
