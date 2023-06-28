@@ -15,7 +15,6 @@ export class ClothesController {
     }
 
     @Get('all')
-    @UseGuards(AuthGuard())
     async getAllClothes(): Promise<Clothes[]> {
         return await this.clothesService.findAll();
     }
