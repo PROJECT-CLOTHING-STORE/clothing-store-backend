@@ -23,14 +23,10 @@ export class ClothesController {
     @Post('create')
     @UseGuards(AuthGuard())
     async createCloth(@Body() cloth: CreateClothesRequest): Promise<Clothes> {
-        const res = await this.clothesService.addCloth(
+        return await this.clothesService.addCloth(
             cloth.image,
             cloth.name,
             cloth.stock,
         );
-        if (res == null) {
-            return null;
-        }
-        return res;
     }
 }
