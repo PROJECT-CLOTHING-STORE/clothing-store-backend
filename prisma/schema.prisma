@@ -31,5 +31,7 @@ model Clothes {
   image       String   @db.VarChar(200)
   stock       Int      @default(0)
   name        String   @unique
+  tags        String[] @default([])
+  description String   @default("")
   isAvailable Boolean  @default(true)
 }
