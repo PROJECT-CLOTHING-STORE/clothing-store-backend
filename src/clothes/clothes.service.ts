@@ -23,8 +23,10 @@ export class ClothesService {
                     stock: stock,
                 },
             });
+            console.log(res);
             return res;
-        } catch {
+        } catch (e) {
+            console.log(e);
             return null;
         }
     }
