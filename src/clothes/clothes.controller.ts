@@ -26,6 +26,8 @@ export class ClothesController {
             cloth.image,
             cloth.name,
             cloth.stock,
+            cloth.tags,
+            cloth.description,
         );
     }
 }

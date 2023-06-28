@@ -14,6 +14,8 @@ export class ClothesService {
         image: string,
         name: string,
         stock: number,
+        tags: string[],
+        description: string,
     ): Promise<Clothes> {
         try {
             const res = await this.prismaService.clothes.create({
@@ -21,6 +23,8 @@ export class ClothesService {
                     image: image,
                     name: name,
                     stock: stock,
+                    tags: tags,
+                    description: description !== null ? description : '',
                 },
             });
             return res;
