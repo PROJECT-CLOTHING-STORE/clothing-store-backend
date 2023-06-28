@@ -9,4 +9,23 @@ export class ClothesService {
     async findAll(): Promise<Clothes[]> {
         return await this.prismaService.clothes.findMany();
     }
+
+    async addCloth(
+        image: string,
+        name: string,
+        stock: number,
+    ): Promise<Clothes> {
+        try {
+            const res = await this.prismaService.clothes.create({
+                data: {
+                    image: image,
+                    name: name,
+                    stock: stock,
+                },
+            });
+            return res;
+        } catch {
+            return null;
+        }
+    }
 }
