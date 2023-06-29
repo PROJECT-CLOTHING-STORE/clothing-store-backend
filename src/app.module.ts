@@ -7,6 +7,7 @@ import configuration from 'config/configuration';
 import { JwtModule } from '@nestjs/jwt';
 import { ClothesModule } from './clothes/clothes.module';
 import { JwtStrategy } from './auth/strategy/jwt.strategy';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
     imports: [
@@ -23,6 +24,7 @@ import { JwtStrategy } from './auth/strategy/jwt.strategy';
             },
         }),
         ClothesModule,
+        PaymentModule,
     ],
     controllers: [AppController],
     providers: [AppService, JwtStrategy],
