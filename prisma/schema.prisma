@@ -32,6 +32,7 @@ model Clothes {
   image       String    @db.VarChar(200)
   stock       Int       @default(0)
   name        String    @unique
+  price       Int       @default(0)
   tags        String[]  @default([])
   description String    @default("")
   isAvailable Boolean   @default(true)
@@ -41,6 +42,7 @@ model Clothes {
 model Payment {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
+  quantity  Int      @default(1)
   cloth     Clothes  @relation(fields: [clothId], references: [id])
   clothId   Int
   user      User     @relation(fields: [userId], references: [id])

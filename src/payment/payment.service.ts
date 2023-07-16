@@ -23,12 +23,30 @@ export class PaymentService {
         }
     }
 
-    async createPayment(userId: number, clothId: number) {
+    async createPayment(userId: number, clothId: number, quantity: number) {
         try {
+            const cloth = await this.prismaService.clothes.findFirst({
+                where: {
+                    id: clothId,
+                },
+            });
+            if (cloth.stock >= quantity) {
+                await this.prismaService.clothes.update({
+                    data: {
+                        stock: {
+                            decrement: quantity,
+                        },
+                    },
+                    where: {
+                        id: clothId,
+                    },
+                });
+            }
             const res = await this.prismaService.payment.create({
                 data: {
                     userId: userId,
                     clothId: clothId,
+                    quantity: quantity,
                 },
             });
             return res;

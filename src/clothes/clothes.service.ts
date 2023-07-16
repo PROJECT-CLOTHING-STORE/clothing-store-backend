@@ -14,6 +14,7 @@ export class ClothesService {
         image: string,
         name: string,
         stock: number,
+        price: number,
         tags: string[],
         description: string,
     ): Promise<Clothes> {
@@ -23,12 +24,27 @@ export class ClothesService {
                     image: image,
                     name: name,
                     stock: stock,
+                    price: price,
                     tags: tags,
                     description: description !== null ? description : '',
                 },
             });
             return res;
         } catch (e) {
+            return null;
+        }
+    }
+
+    async getClothById(id: number): Promise<Clothes> {
+        try {
+            const res = await this.prismaService.clothes.findFirst({
+                where: {
+                    id: id,
+                },
+            });
+            return res;
+        } catch (e) {
+            console.log('halo');
             return null;
         }
     }
