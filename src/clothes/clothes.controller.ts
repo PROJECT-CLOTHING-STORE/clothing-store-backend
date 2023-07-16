@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Clothes } from '@prisma/client';
 import { ClothesService } from './clothes.service';
@@ -26,8 +26,14 @@ export class ClothesController {
             cloth.image,
             cloth.name,
             cloth.stock,
+            cloth.price,
             cloth.tags,
             cloth.description,
         );
+    }
+
+    @Get(':id')
+    async findOneCloth(@Param('id') id: string): Promise<Clothes> {
+        return await this.clothesService.getClothById(Number(id));
     }
 }

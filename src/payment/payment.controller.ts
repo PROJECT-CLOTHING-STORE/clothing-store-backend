@@ -19,6 +19,10 @@ export class PaymentController {
     @Post('create')
     @UseGuards(AuthGuard())
     async addPayment(@Body() req: CreatePaymentRequestDto): Promise<Payment> {
-        return await this.paymentService.createPayment(req.userId, req.clothId);
+        return await this.paymentService.createPayment(
+            req.userId,
+            req.clothId,
+            req.quantity,
+        );
     }
 }

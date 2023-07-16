@@ -5,4 +5,5 @@ export interface FindPaymentsRequestDto {
 export interface CreatePaymentRequestDto {
     userId: number;
     clothId: number;
+    quantity: number;
 }
