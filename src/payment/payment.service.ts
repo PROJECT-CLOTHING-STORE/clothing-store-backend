@@ -23,7 +23,18 @@ export class PaymentService {
         }
     }
 
-    async createPayment(userId: number, clothId: number, quantity: number) {
+    async createPayment(
+        userId: number,
+        clothId: number,
+        quantity: number,
+        size: string,
+        email: string,
+        firstName: string,
+        lastName: string,
+        city: string,
+        province: string,
+        postalCode: number,
+    ) {
         try {
             const cloth = await this.prismaService.clothes.findFirst({
                 where: {
@@ -47,6 +58,13 @@ export class PaymentService {
                     userId: userId,
                     clothId: clothId,
                     quantity: quantity,
+                    size: size,
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    city: city,
+                    province: province,
+                    postalCode: postalCode,
                 },
             });
             return res;
