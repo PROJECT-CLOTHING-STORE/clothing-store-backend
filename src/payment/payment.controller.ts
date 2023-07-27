@@ -23,6 +23,13 @@ export class PaymentController {
             req.userId,
             req.clothId,
             req.quantity,
+            req.size,
+            req.email,
+            req.firstName,
+            req.lastName,
+            req.city,
+            req.province,
+            req.postalCode,
         );
     }
 }
