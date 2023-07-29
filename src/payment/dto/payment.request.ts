@@ -3,7 +3,7 @@ export interface FindPaymentsRequestDto {
 }
 
 export interface CreatePaymentRequestDto {
-    userId: number;
+    username: string;
     clothId: number;
     quantity: number;
     size: string;
