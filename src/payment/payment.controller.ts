@@ -12,12 +12,12 @@ export class PaymentController {
         private usersService: UsersService,
     ) {}
 
-    @Get('all-by-userId')
+    @Get('all-by-username')
     @UseGuards(AuthGuard())
-    async getPaymentsByUserId(
+    async getPaymentsByUsername(
         @Body() req: FindPaymentsRequestDto,
     ): Promise<Payment[]> {
-        return await this.paymentService.findPaymentsByUserId(req.userId);
+        return await this.paymentService.findPaymentsByUsername(req.username);
     }
 
     @Post('create')
