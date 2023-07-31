@@ -1,5 +1,5 @@
 export interface FindPaymentsRequestDto {
-    userId: number;
+    username: string;
 }
 
 export interface CreatePaymentRequestDto {

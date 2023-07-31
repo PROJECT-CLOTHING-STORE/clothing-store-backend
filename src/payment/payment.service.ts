@@ -6,11 +6,16 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class PaymentService {
     constructor(private prismaService: PrismaService) {}
 
-    async findPaymentsByUserId(userId: number): Promise<Payment[]> {
+    async findPaymentsByUsername(username: string): Promise<Payment[]> {
         try {
+            const user = await this.prismaService.user.findFirst({
+                where: {
+                    username: username,
+                },
+            });
             const res = await this.prismaService.payment.findMany({
                 where: {
-                    userId: userId,
+                    userId: user.id,
                 },
                 include: {
                     user: true,
