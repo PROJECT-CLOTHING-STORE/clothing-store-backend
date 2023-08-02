@@ -38,6 +38,7 @@ export class PaymentController {
                 req.city,
                 req.province,
                 req.postalCode,
+                req.addressDetail,
             );
         } catch (e) {
             return null;
