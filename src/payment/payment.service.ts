@@ -39,6 +39,7 @@ export class PaymentService {
         city: string,
         province: string,
         postalCode: number,
+        addressDetail: string,
     ) {
         try {
             const cloth = await this.prismaService.clothes.findFirst({
@@ -70,6 +71,7 @@ export class PaymentService {
                     city: city,
                     province: province,
                     postalCode: postalCode,
+                    addressDetail: addressDetail,
                 },
             });
             return res;

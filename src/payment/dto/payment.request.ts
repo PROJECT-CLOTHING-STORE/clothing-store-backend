@@ -13,4 +13,5 @@ export interface CreatePaymentRequestDto {
     city: string;
     province: string;
     postalCode: number;
+    addressDetail: string;
 }
