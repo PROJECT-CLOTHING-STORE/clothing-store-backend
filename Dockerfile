@@ -9,6 +9,7 @@ COPY package.json yarn.lock* ./
 
 ARG JWT_SECRET
 ARG DATABASE_URL
+ARG SALT_ROUNDS
 
 # Set the environment variables
 ENV JWT_SECRET ${JWT_SECRET}
