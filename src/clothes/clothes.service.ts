@@ -44,7 +44,6 @@ export class ClothesService {
             });
             return res;
         } catch (e) {
-            console.log('halo');
             return null;
         }
     }

@@ -29,6 +29,8 @@
         "@nestjs/passport": "^9.0.3",
         "@nestjs/platform-express": "^9.0.0",
         "@prisma/client": "^4.14.1",
+        "@types/bcrypt": "^5.0.0",
+        "bcrypt": "^5.1.0",
         "dotenv-cli": "^7.2.1",
         "passport": "^0.6.0",
         "passport-jwt": "^4.0.1",
@@ -78,6 +80,9 @@
             "**/*.(t|j)s"
         ],
         "coverageDirectory": "../coverage",
-        "testEnvironment": "node"
+        "testEnvironment": "node",
+        "moduleNameMapper": {
+            "^src/(.*)$": "<rootDir>/$1"
+        }
     }
 }

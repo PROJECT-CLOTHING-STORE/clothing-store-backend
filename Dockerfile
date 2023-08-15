@@ -13,9 +13,11 @@ ARG DATABASE_URL
 # Set the environment variables
 ENV JWT_SECRET ${JWT_SECRET}
 ENV DATABASE_URL ${DATABASE_URL}
+ENV SALT_ROUNDS ${SALT_ROUNDS}
 
 RUN echo ${JWT_SECRET}
 RUN echo ${DATABASE_URL}
+RUN echo ${SALT_ROUNDS}
 
 # Install dependencies
 RUN yarn install
