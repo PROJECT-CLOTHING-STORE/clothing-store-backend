@@ -43,7 +43,7 @@ export class AuthService {
         if (username.length === 0 || password.length === 0) return null;
         const hashedPassword = await bcrypt.hash(
             password,
-            this.configService.get('SALT_ROUNDS'),
+            this.configService.get<number>('SALT_ROUNDS'),
         );
         return await this.usersService.createUser(username, hashedPassword);
     }
