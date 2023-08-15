@@ -42,7 +42,7 @@ export class AuthService {
     async register(username: string, password: string): Promise<User> {
         if (username.length === 0 || password.length === 0) return null;
         const salt = await bcrypt.genSalt(
-            this.configService.get<number>('SALT_ROUNDS'),
+            Number(this.configService.get<number>('SALT_ROUNDS')),
         );
         const hashedPassword = await bcrypt.hash(password, salt);
         return await this.usersService.createUser(username, hashedPassword);
