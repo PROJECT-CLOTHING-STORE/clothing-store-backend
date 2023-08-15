@@ -6,4 +6,5 @@ export default () => ({
             'postgresql://postgres:postgres@localhost:5432/clothing_store?schema=public',
     },
     JWT_SECRET: process.env.JWT_SECRET || 'AKUCINTAKAMUJANCUK',
+    SALT_ROUNDS: process.env.SALT_ROUNDS || 10,
 });
